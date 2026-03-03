@@ -108,5 +108,13 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
     }
 
-
+    @Override
+    public Map<String, Object> getWatchStatistics(Long userId) {
+        List<WatchHistory> history = watchHistoryRepository.findByUserId(userId);
+        Map<String, Object> stats = new HashMap<>();
+        stats.put("totalVideosWatched", history.size());
+        stats.put("completedVideos", history.stream().filter(WatchHistory::getCompleted).count());
+        stats.put("totalWatchTime", history.stream().mapToInt(WatchHistory::getProgressTime).sum());
+        return stats;
+    }
 }
