@@ -54,50 +54,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.toDTOList(userRepository.findAll());
     }
 
-    @Override
-    @Transactional
-    public void addToWatchlist(Long userId, Long videoId) {
-        Watchlist watchlist = Watchlist.builder()
-                .userId(userId)
-                .videoId(videoId)
-                .addedAt(LocalDateTime.now())
-                .build();
-        watchlistRepository.save(watchlist);
-    }
 
-    @Override
-    @Transactional
-    public void removeFromWatchlist(Long userId, Long videoId) {
-        watchlistRepository.deleteByUserIdAndVideoId(userId, videoId);
-    }
 
-    @Override
-    public List<WatchlistDTO> getWatchlist(Long userId) {
-        return watchlistRepository.findByUserId(userId).stream()
-                .map(w -> {
-                    WatchlistDTO dto = watchlistMapper.toDTO(w);
-                    try {
-                        dto.setVideo(videoClient.getVideoById(w.getVideoId()));
-                    } catch (Exception e) {
-                        // Video service might be down or video not found
-                    }
-                    return dto;
-                })
-                .collect(Collectors.toList());
-    }
 
-    @Override
-    @Transactional
-    public void recordWatchHistory(Long userId, Long videoId, Integer progressTime, Boolean completed) {
-        WatchHistory history = WatchHistory.builder()
-                .userId(userId)
-                .videoId(videoId)
-                .progressTime(progressTime)
-                .completed(completed)
-                .watchedAt(LocalDateTime.now())
-                .build();
-        watchHistoryRepository.save(history);
-    }
+
+
 
 
 
