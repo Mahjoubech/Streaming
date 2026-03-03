@@ -94,6 +94,19 @@ public class UserServiceImpl implements UserService {
                 .build();
         watchHistoryRepository.save(history);
     }
+    @Override
+    public List<WatchHistoryDTO> getWatchHistory(Long userId) {
+        return watchHistoryRepository.findByUserId(userId).stream()
+                .map(h -> {
+                    WatchHistoryDTO dto = watchHistoryMapper.toDTO(h);
+                    try {
+                        dto.setVideo(videoClient.getVideoById(h.getVideoId()));
+                    } catch (Exception e) {
+                    }
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
 
 
 }
