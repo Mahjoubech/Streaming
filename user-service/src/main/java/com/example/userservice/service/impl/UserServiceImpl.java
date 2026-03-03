@@ -53,13 +53,16 @@ public class UserServiceImpl implements UserService {
     public List<UserDTO> getAllUsers() {
         return userMapper.toDTOList(userRepository.findAll());
     }
-
-
-
-
-
-
-
+    @Override
+    @Transactional
+    public void addToWatchlist(Long userId, Long videoId) {
+        Watchlist watchlist = Watchlist.builder()
+                .userId(userId)
+                .videoId(videoId)
+                .addedAt(LocalDateTime.now())
+                .build();
+        watchlistRepository.save(watchlist);
+    }
 
 
 

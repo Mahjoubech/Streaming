@@ -10,5 +10,5 @@ public interface UserService {
     UserDTO createUser(UserDTO userDTO);
     UserDTO getUserById(Long id);
     List<UserDTO> getAllUsers();
-
+    void addToWatchlist(Long userId, Long videoId);
 }
