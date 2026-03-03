@@ -63,7 +63,11 @@ public class UserServiceImpl implements UserService {
                 .build();
         watchlistRepository.save(watchlist);
     }
-
+    @Override
+    @Transactional
+    public void removeFromWatchlist(Long userId, Long videoId) {
+        watchlistRepository.deleteByUserIdAndVideoId(userId, videoId);
+    }
 
 
 }
