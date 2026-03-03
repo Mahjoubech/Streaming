@@ -15,5 +15,6 @@ public interface UserService {
     List<WatchlistDTO> getWatchlist(Long userId);
     void recordWatchHistory(Long userId, Long videoId, Integer progressTime, Boolean completed);
     List<WatchHistoryDTO> getWatchHistory(Long userId);
+    Map<String, Object> getWatchStatistics(Long userId);
 
 }
