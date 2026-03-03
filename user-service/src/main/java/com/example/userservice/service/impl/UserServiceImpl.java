@@ -82,6 +82,18 @@ public class UserServiceImpl implements UserService {
                 })
                 .collect(Collectors.toList());
     }
+    @Override
+    @Transactional
+    public void recordWatchHistory(Long userId, Long videoId, Integer progressTime, Boolean completed) {
+        WatchHistory history = WatchHistory.builder()
+                .userId(userId)
+                .videoId(videoId)
+                .progressTime(progressTime)
+                .completed(completed)
+                .watchedAt(LocalDateTime.now())
+                .build();
+        watchHistoryRepository.save(history);
+    }
 
 
 }
