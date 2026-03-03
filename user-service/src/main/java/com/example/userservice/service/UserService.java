@@ -13,5 +13,6 @@ public interface UserService {
     void addToWatchlist(Long userId, Long videoId);
     void removeFromWatchlist(Long userId, Long videoId);
     List<WatchlistDTO> getWatchlist(Long userId);
+    void recordWatchHistory(Long userId, Long videoId, Integer progressTime, Boolean completed);
 
 }
