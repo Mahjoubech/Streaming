@@ -12,4 +12,6 @@ public interface UserService {
     List<UserDTO> getAllUsers();
     void addToWatchlist(Long userId, Long videoId);
     void removeFromWatchlist(Long userId, Long videoId);
+    List<WatchlistDTO> getWatchlist(Long userId);
+
 }

@@ -68,6 +68,20 @@ public class UserServiceImpl implements UserService {
     public void removeFromWatchlist(Long userId, Long videoId) {
         watchlistRepository.deleteByUserIdAndVideoId(userId, videoId);
     }
+    @Override
+    public List<WatchlistDTO> getWatchlist(Long userId) {
+        return watchlistRepository.findByUserId(userId).stream()
+                .map(w -> {
+                    WatchlistDTO dto = watchlistMapper.toDTO(w);
+                    try {
+                        dto.setVideo(videoClient.getVideoById(w.getVideoId()));
+                    } catch (Exception e) {
+                        // Video service might be down or video not found
+                    }
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
 
 
 }
