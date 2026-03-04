@@ -1,9 +1,10 @@
-package com.streaming.user.controller;
+package com.example.userservice.controller;
 
-import com.streaming.user.dto.UserDTO;
-import com.streaming.user.dto.WatchHistoryDTO;
-import com.streaming.user.dto.WatchlistDTO;
-import com.streaming.user.service.UserService;
+import com.example.userservice.dto.UserDTO;
+import com.example.userservice.dto.WatchHistoryDTO;
+import com.example.userservice.dto.WatchlistDTO;
+import com.example.userservice.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> createUser(@RequestBody @Valid UserDTO userDTO) {
         return new ResponseEntity<>(userService.createUser(userDTO), HttpStatus.CREATED);
     }
 

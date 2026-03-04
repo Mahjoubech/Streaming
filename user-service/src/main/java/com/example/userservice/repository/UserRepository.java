@@ -1,6 +1,6 @@
-package com.streaming.user.repository;
+package com.example.userservice.repository;
 
-import com.streaming.user.entity.User;
+import com.example.userservice.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

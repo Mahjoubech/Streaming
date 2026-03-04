@@ -1,8 +1,8 @@
-package com.streaming.user.service;
+package com.example.userservice.service;
 
-import com.streaming.user.dto.UserDTO;
-import com.streaming.user.dto.WatchHistoryDTO;
-import com.streaming.user.dto.WatchlistDTO;
+import com.example.userservice.dto.UserDTO;
+import com.example.userservice.dto.WatchHistoryDTO;
+import com.example.userservice.dto.WatchlistDTO;
 import java.util.List;
 import java.util.Map;
 

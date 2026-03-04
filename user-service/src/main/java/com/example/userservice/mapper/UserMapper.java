@@ -1,7 +1,7 @@
-package com.streaming.user.mapper;
+package com.example.userservice.mapper;
 
-import com.streaming.user.dto.UserDTO;
-import com.streaming.user.entity.User;
+import com.example.userservice.dto.UserDTO;
+import com.example.userservice.entity.User;
 import org.mapstruct.Mapper;
 
 import java.util.List;

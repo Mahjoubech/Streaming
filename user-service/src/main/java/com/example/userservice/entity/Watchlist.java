@@ -1,4 +1,4 @@
-package com.streaming.user.entity;
+package com.example.userservice.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

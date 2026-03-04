@@ -1,6 +1,6 @@
-package com.streaming.user.repository;
+package com.example.userservice.repository;
 
-import com.streaming.user.entity.WatchHistory;
+import com.example.userservice.entity.WatchHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package com.streaming.user.mapper;
+package com.example.userservice.mapper;
 
-import com.streaming.user.dto.WatchHistoryDTO;
-import com.streaming.user.entity.WatchHistory;
+import com.example.userservice.dto.WatchHistoryDTO;
+import com.example.userservice.entity.WatchHistory;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

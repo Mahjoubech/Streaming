@@ -1,6 +1,6 @@
-package com.streaming.user.repository;
+package com.example.userservice.repository;
 
-import com.streaming.user.entity.Watchlist;
+import com.example.userservice.entity.Watchlist;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,5 +1,5 @@
-package com.streaming.user.dto;
-
+package com.example.userservice.dto;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 @Data
@@ -7,7 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class UserDTO {
-    private Long id;
+    @NotBlank(message = "Username is required")
     private String username;
+    @Email
+    @NotBlank(message = "Email is required")
     private String email;
 }

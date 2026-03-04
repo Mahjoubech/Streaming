@@ -1,6 +1,6 @@
-package com.streaming.user.client;
+package com.example.userservice.client;
 
-import com.streaming.user.dto.VideoDTO;
+import com.example.userservice.dto.VideoDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
