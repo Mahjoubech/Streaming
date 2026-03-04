@@ -5,11 +5,19 @@ meta {
 }
 
 post {
-  url: localhost:8080/api/users
-  body: none
+  url: http://localhost:8080/api/users
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "username" : "hamiid",
+    "email" : "hamid@gmail.com"
+  }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
