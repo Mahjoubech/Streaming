@@ -1,3 +1,24 @@
+# STREAM-16: Configure Config Server
 spring:
   application:
     name: config-service
+  cloud:
+    config:
+      server:
+        native:
+          # Tell config server to read from the local classpath /resources/config directory.
+          # Since you asked to skip STREAM-14 (separate git repo), we will use the native profile
+          # and serve files directly from the config-service itself.
+          search-locations: classpath:/config/
+  profiles:
+    # Activate the native profile to serve local files instead of Git
+    active: native
+
+server:
+  port: 8888
+
+# Register with Eureka so other services can find it
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
