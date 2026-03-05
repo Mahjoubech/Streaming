@@ -49,6 +49,6 @@ public class Video {
 
     private String director;
 
-    @Column(length = 1000)
+    @Column(name = "cast_members", length = 1000)
     private String cast;
 }
