@@ -1,3 +1,25 @@
+# STREAM-10: Configure application.yaml for Eureka Discovery Service
+# STREAM-11: Disable self-registration (register-with-eureka: false, fetch-registry: false)
+# STREAM-12: Service runs on port 8761
+
 spring:
   application:
     name: discovery-service
+
+server:
+  # STREAM-12: Eureka standard port
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # STREAM-11: Disable self-registration — the server does not register itself
+    register-with-eureka: false
+    # STREAM-11: Disable fetching registry — no other registry to pull from
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    # Wait time before evicting unresponsive clients (ms)
+    wait-time-in-ms-when-sync-empty: 0
